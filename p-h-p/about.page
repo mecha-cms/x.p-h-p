@@ -3,7 +3,7 @@ title: PHP Page
 description: Evaluate PHP syntax within the page content.
 author: Taufik Nurrohman
 type: Markdown
-version: 1.0.1
+version: 1.0.2
 
 use:
   '.\lot\x\page': 1

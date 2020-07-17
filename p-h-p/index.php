@@ -19,6 +19,7 @@ function p_h_p($content) {
             extract($GLOBALS, \EXTR_SKIP);
             // Parse mixed PHP expression and plain HTML data
             $parts = \preg_split('/(<\?(?:php|=)(?:[\s\S]+?)(?:\?>|$))/', $content, null, \PREG_SPLIT_NO_EMPTY | \PREG_SPLIT_DELIM_CAPTURE);
+            $out = "";
             foreach ($parts as $part) {
                 $e = 0 === \strpos($part, '<?='); // Echo?
                 if (0 === \strpos($part, '<?php') || $e) {
@@ -26,11 +27,15 @@ function p_h_p($content) {
                     if ('?>' === \substr($part, -2)) {
                         $part = \substr($part, 0, -2);
                     }
-                    eval(($e ? 'echo ' : "") . \trim($part));
+                    if (';' !== \substr($part = \trim($part), -1)) {
+                        $part .= ';';
+                    }
+                    $out .= ($e ? ' echo ' : "") . $part;
                 } else {
-                    echo $part;
+                    $out .= " echo '" . \strtr($part, ["'" => "\\'"]) . "';";
                 }
             }
+            eval($out);
             return \ob_get_clean();
         }, [$content], $this);
     }
