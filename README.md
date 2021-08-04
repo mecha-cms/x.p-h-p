@@ -1,5 +1,5 @@
-PHP Page Extension for Mecha
-============================
+PHP Page Extension for [Mecha](https://github.com/mecha-cms/mecha)
+==================================================================
 
 Release Notes
 -------------
