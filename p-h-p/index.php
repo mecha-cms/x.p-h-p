@@ -1,4 +1,4 @@
-<?php namespace _\lot\x;
+<?php namespace x;
 
 function p_h_p($content) {
     if (false === \strpos($content, '<?')) {
