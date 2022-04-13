@@ -16,7 +16,7 @@ function p_h_p($content) {
     ) {
         $content = \fire(function($content) {
             \ob_start();
-            extract($GLOBALS, \EXTR_SKIP);
+            \extract($GLOBALS, \EXTR_SKIP);
             // Parse mixed PHP expression and plain HTML data
             $parts = \preg_split('/(<\?(?:php|=)(?:[\s\S]+?)(?:\?>|$))/', $content, null, \PREG_SPLIT_NO_EMPTY | \PREG_SPLIT_DELIM_CAPTURE);
             $out = "";
