@@ -14,7 +14,7 @@ function p_h_p($content) {
         'text/php' === $type ||
         'text/x-php' === $type
     ) {
-        $content = \fire(function($content) {
+        $content = \fire(function ($content) {
             \ob_start();
             \extract($GLOBALS, \EXTR_SKIP);
             // Parse mixed PHP expression and plain HTML data
