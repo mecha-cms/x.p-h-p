@@ -1,7 +1,11 @@
 <?php namespace x;
 
+if (\defined("\\TEST") && 'x.p-h-p' === \TEST) {
+    require __DIR__ . \D . 'test.php';
+}
+
 function p_h_p($content) {
-    if (false === \strpos($content, '<?')) {
+    if (!$content || false === \strpos($content, '<?')) {
         return $content;
     }
     $type = $this->type;
@@ -18,7 +22,7 @@ function p_h_p($content) {
             \ob_start();
             \extract($GLOBALS, \EXTR_SKIP);
             // Parse mixed PHP expression and plain HTML data
-            $parts = \preg_split('/(<\?(?:php|=)(?:[\s\S]+?)(?:\?>|$))/', $content, null, \PREG_SPLIT_NO_EMPTY | \PREG_SPLIT_DELIM_CAPTURE);
+            $parts = \preg_split('/(<\?(?:php|=)(?:"(?:[^"\\\]|\\\.)*"|\'(?:[^\'\\\]|\\\.)*\'|[\s\S])*?(?:\?>|$))/', $content, -1, \PREG_SPLIT_NO_EMPTY | \PREG_SPLIT_DELIM_CAPTURE);
             $out = "";
             foreach ($parts as $part) {
                 $e = 0 === \strpos($part, '<?='); // Echo?

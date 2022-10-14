@@ -1,0 +1,23 @@
+aaa
+
+<?= date('Y-m-d H:i:s'); ?>
+
+aaa
+
+<?php
+
+echo 'aaa (from PHP)';
+
+?>
+
+aaa
+
+<?= 'aaa <?php asdf; ?>'; ?>
+
+<?= "aaa <?php asdf; ?>"; ?>
+
+<?= 'aaa <?= \'aaa\'; ?>'; ?>
+
+<?php
+
+echo 'Test PHP code at the end of the buffer (no PHP close tag).';

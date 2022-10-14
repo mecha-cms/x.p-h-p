@@ -6,13 +6,15 @@ author: Taufik Nurrohman
 type: Markdown
 version: 1.1.0
 
+alert:
+  warn:
+  - 'This extension is not to be used on a site with multiple users. Other users may use this feature to execute malicious functions to break your system.'
+
 use:
   '.\lot\x\page': 1
 ...
 
-**This extension is not to be used on a site with multiple users. Other users may use this feature to execute malicious functions to break your system.**
-
-If you don’t like the [block](https://github.com/mecha-cms/x.block.e) evaluation method, you can use this extension to evaluate PHP expressions in the page file. It’s just that, you need to write the page content as raw HTML code, so you can’t combine this extension feature with [markdown](https://github.com/mecha-cms/x.markdown) extension and the like (unless you are fine with implementing the parser in the PHP code).
+If you don’t like the [Block](https://github.com/mecha-cms/x.block.e) evaluation method, you can use this extension to evaluate PHP expressions in the page file. It’s just that, you need to write the page content as raw HTML code, so you can’t combine this extension feature with [Markdown](https://github.com/mecha-cms/x.markdown) extension and the like (unless you are fine with implementing the parser in the PHP code).
 
 ### Usage
 
@@ -28,14 +30,16 @@ type: PHP
 
 <p>This is a <strong>bold</strong> text.</p>
 <p>Today is <?= $date->time('%A, %B %d, %Y'); ?>.</p>
-<?php
+<p>
+  <?php
 
-// Declare some PHP expressions here…
+  // PHP code goes here…
 
-echo 'Yo!';
+  echo 'Yo!';
 
-?>
+  ?>
+</p>
 <p>Other HTML code goes here.</p>
 ~~~
 
-This extension is suitable to be combined with [route](https://github.com/mecha-cms/x.route) extension.
+This extension is suitable to be combined with [Route](https://github.com/mecha-cms/x.route) extension.
