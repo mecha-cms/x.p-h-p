@@ -29,7 +29,7 @@ type: PHP
 ...
 
 <p>This is a <strong>bold</strong> text.</p>
-<p>Today is <?= $date->time('%A, %B %d, %Y'); ?>.</p>
+<p>Today is <?= $date->i('%A, %B %d, %Y'); ?>.</p>
 <p>
   <?php
 
