@@ -1,9 +1,5 @@
 <?php namespace x;
 
-if (\defined("\\TEST") && 'x.p-h-p' === \TEST) {
-    require __DIR__ . \D . 'test.php';
-}
-
 function p_h_p($content) {
     if (!$content || false === \strpos($content, '<?')) {
         return $content;
@@ -51,3 +47,7 @@ function p_h_p($content) {
     'page.description',
     'page.title'
 ], __NAMESPACE__ . "\\p_h_p", 2);
+
+if (\defined("\\TEST") && 'x.p-h-p' === \TEST && \is_file($test = __DIR__ . \D . 'test.php')) {
+    require $test;
+}

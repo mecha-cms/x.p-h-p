@@ -1,5 +1,5 @@
 {
-  "description": "Evaluate PHP syntax within the page content.",
+  "description": "Evaluates PHP syntax within the page content.",
   "license": "GPL-3.0-or-later",
   "name": "mecha-cms/x.p-h-p",
   "require": {
