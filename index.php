@@ -1,6 +1,6 @@
-<?php namespace x;
+<?php namespace x\p_h_p\page;
 
-function p_h_p($content) {
+function content($content) {
     if (!$content || false === \strpos($content, '<?')) {
         return $content;
     }
@@ -42,11 +42,17 @@ function p_h_p($content) {
     return $content;
 }
 
-\Hook::set([
-    'page.content',
-    'page.description',
-    'page.title'
-], __NAMESPACE__ . "\\p_h_p", 2);
+function description($description) {
+    return \fire(__NAMESPACE__ . "\\content", [$description], $this);
+}
+
+function title($title) {
+    return \fire(__NAMESPACE__ . "\\content", [$title], $this);
+}
+
+\Hook::set('page.content', __NAMESPACE__ . "\\content", 2);
+\Hook::set('page.description', __NAMESPACE__ . "\\description", 2);
+\Hook::set('page.title', __NAMESPACE__ . "\\title", 2);
 
 if (\defined("\\TEST") && 'x.p-h-p' === \TEST && \is_file($test = __DIR__ . \D . 'test.php')) {
     require $test;
