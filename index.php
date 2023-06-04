@@ -1,6 +1,6 @@
-<?php namespace x\p_h_p\page;
+<?php namespace x\p_h_p;
 
-function content($content) {
+function page__content($content) {
     if (!$content || false === \strpos($content, '<?')) {
         return $content;
     }
@@ -42,17 +42,17 @@ function content($content) {
     return $content;
 }
 
-function description($description) {
-    return \fire(__NAMESPACE__ . "\\content", [$description], $this);
+function page__description($description) {
+    return \fire(__NAMESPACE__ . "\\page__content", [$description], $this);
 }
 
-function title($title) {
-    return \fire(__NAMESPACE__ . "\\content", [$title], $this);
+function page__title($title) {
+    return \fire(__NAMESPACE__ . "\\page__content", [$title], $this);
 }
 
-\Hook::set('page.content', __NAMESPACE__ . "\\content", 2);
-\Hook::set('page.description', __NAMESPACE__ . "\\description", 2);
-\Hook::set('page.title', __NAMESPACE__ . "\\title", 2);
+\Hook::set('page.content', __NAMESPACE__ . "\\page__content", 2);
+\Hook::set('page.description', __NAMESPACE__ . "\\page__description", 2);
+\Hook::set('page.title', __NAMESPACE__ . "\\page__title", 2);
 
 if (\defined("\\TEST") && 'x.p-h-p' === \TEST && \is_file($test = __DIR__ . \D . 'test.php')) {
     require $test;
