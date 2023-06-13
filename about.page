@@ -9,17 +9,17 @@ version: 1.1.0
 
 alert:
   warn:
-  - 'This extension is not to be used on a site with multiple users. Other users may use this feature to execute malicious functions to break your system.'
+  - 'This extension should not be used on a site with multiple users. Other users may use this feature to perform malicious functions to break your system.'
 ...
 
 If you don’t like the [Block](https://github.com/mecha-cms/x.block.e) evaluation method, you can use this extension to
-evaluate PHP expressions in the page file. It’s just that, you need to write the page content as raw HTML code, so you
-can’t combine this extension feature with [Markdown](https://github.com/mecha-cms/x.markdown) extension and the like
-(unless you are fine with implementing the parser in the PHP code).
+evaluate PHP expressions in a page file. It’s just that you have to write the page content as raw HTML, so you can’t
+combine this extension feature with [Markdown](https://github.com/mecha-cms/x.markdown) extension and the like (unless
+you’re comfortable implementing the parser directly in your PHP code).
 
 ### Usage
 
-In your page header, add `type` property with value set to `PHP` or `application/php`:
+In your page header, add the `type` property with the value set to `PHP` or `application/php`:
 
 ~~~ .yaml
 ---
@@ -34,7 +34,7 @@ type: PHP
 <p>
   <?php
 
-  // PHP code goes here…
+  // Your PHP code goes here…
 
   echo 'Yo!';
 
@@ -43,4 +43,4 @@ type: PHP
 <p>Other HTML code goes here.</p>
 ~~~
 
-This extension is suitable to be combined with [Route](https://github.com/mecha-cms/x.route) extension.
+This extension is suitable to be used in combination with the [Route](https://github.com/mecha-cms/x.route) extension.
